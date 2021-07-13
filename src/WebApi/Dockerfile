@@ -1,0 +1,31 @@
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
+WORKDIR /src
+ARG BuildMode=default
+ARG Configuration=Release
+ARG AppVersion=1.0.0
+ARG RunTests=false
+ARG IgnoreFailTests=false
+ARG PullRequestNumber
+COPY ["src/Persistence/Persistence.csproj",                                 		      "src/Persistence/"]
+COPY ["src/Infrastructure/Infrastructure.csproj",                                 		  "src/Infrastructure/"]
+COPY ["src/WebApi/WebApi.csproj",                                                         "src/WebApi/"]
+COPY ["src/Application/Application.csproj",                                               "src/Application/"]
+COPY ["src/Domain/Domain.csproj",                                               		  "src/Domain/"]
+COPY ["docker-compose.dcproj",                                                            "docker-compose.dcproj"]
+COPY ["nuget.config",                                                                     "."]
+RUN dotnet restore "src/WebApi/WebApi.csproj"
+COPY . .
+RUN dotnet build "src/WebApi/WebApi.csproj" -c ${Configuration} -o /app/build --configfile nuget.config
+		
+FROM build AS publish
+RUN dotnet publish "src/WebApi/WebApi.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "WebApi.dll"]

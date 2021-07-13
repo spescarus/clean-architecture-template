@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>$(BaseNamespace).Domain</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Directory.Build.props" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CSharpFunctionalExtensions" Version="2.17.0" />
+      <PackageReference Include="FluentValidation" Version="10.2.3" />
+      <PackageReference Include="StronglyTypedId" Version="0.2.1" />
+      <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    </ItemGroup>
+</Project>

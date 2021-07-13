@@ -1,0 +1,43 @@
+version: '3.8'
+
+volumes: 
+  webapi_database_volume:
+    name: template_db
+networks: 
+    template_network:
+
+services:
+  webapi:
+    container_name: template_service_webapi
+    image: sp/template_service/webapi
+    build:
+      dockerfile: ./src/WebApi/Dockerfile
+      context: ./
+      args: 
+        - Configuration=Debug
+        - RunTests=true
+    ports: 
+      - "5000:80"
+    environment: 
+      - "ASPNETCORE_ENVIRONMENT=Development"
+      - "ConnectionStrings__AppDatabase=Host=webapi_database;Database=service;Username=sa;Password=postgres;Port=5432"
+    networks: 
+      - template_network
+    depends_on: 
+      - webapi_database
+  webapi_database:
+    container_name: template_db
+    image: sp/template_service/database
+    build:
+      dockerfile: ./Dockerfile
+      context: ./src/DataModel/
+    ports:
+      - "5432:5432"
+    volumes: 
+      - webapi_database_volume:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=service
+    networks: 
+      - template_network

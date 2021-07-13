@@ -1,0 +1,1 @@
+-- Verify CleanArhitectureTemplate:init-schema on pg

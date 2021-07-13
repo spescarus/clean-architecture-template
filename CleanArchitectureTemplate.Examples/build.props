@@ -1,0 +1,7 @@
+<Project>
+	<Import Project="version.props" />
+	<PropertyGroup>
+		<BaseNamespace>SP.SampleCleanArchitectureTemplate</BaseNamespace>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
+</Project>

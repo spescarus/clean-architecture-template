@@ -1,0 +1,1 @@
+-- Revert CleanArhitectureTemplate:init-schema from pg
