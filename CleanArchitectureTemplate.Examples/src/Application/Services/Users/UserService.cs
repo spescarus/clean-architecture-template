@@ -15,22 +15,19 @@ namespace SP.SampleCleanArchitectureTemplate.Application.Services.Users
 {
     public sealed class UserService : Service, IUserService
     {
-        private readonly IUserRepository    _userRepository;
-        private readonly IValidationService _validationService;
-        private readonly IUnitOfWork        _unitOfWork;
-        private readonly IMapper            _mapper;
+        private readonly IUserRepository _userRepository;
+        private readonly IUnitOfWork     _unitOfWork;
+        private readonly IMapper         _mapper;
 
         public UserService(IUserRepository      userRepository,
-                           IValidationService   validationService,
                            IUnitOfWork          unitOfWork,
                            IMapper              mapper,
                            ILogger<UserService> logger)
             : base(mapper, logger)
         {
-            _userRepository    = userRepository;
-            _validationService = validationService;
-            _unitOfWork        = unitOfWork;
-            _mapper            = mapper;
+            _userRepository = userRepository;
+            _unitOfWork     = unitOfWork;
+            _mapper         = mapper;
         }
 
         public async Task<Result<UserCollectionResponse>> GetAllUsersAsync(int? limit,
@@ -80,7 +77,7 @@ namespace SP.SampleCleanArchitectureTemplate.Application.Services.Users
             }
 
             var user = new User(userNameOrError.Value, nameOrError.Value, emailOrError.Value, address.Value);
-            await _validationService.ValidateAsync(user);
+
             await _userRepository.AddAsync(user, user.Id);
 
             await scope.SaveAsync();
@@ -116,8 +113,7 @@ namespace SP.SampleCleanArchitectureTemplate.Application.Services.Users
             user.Name    = nameOrError.Value;
             user.Email   = emailOrError.Value;
             user.Address = address.Value.Value;
-            
-            await _validationService.ValidateAsync(user);
+
             await _userRepository.Update(user, userIdCaller);
 
             await scope.SaveAsync();
