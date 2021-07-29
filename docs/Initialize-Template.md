@@ -14,6 +14,7 @@
   - [Domain](#domain)
     - [Typed Id](#typed-id)
   - [Infrastructure](#infrastructure)
+  - [Persistence](#persistence)
     - [Configurations](#configurations)
     - [TaskExtensions](#taskextensions)
     - [Repositories](#repositories)
@@ -72,6 +73,10 @@ public  class  MyEntity : Entity<MyEntityId> {
 In background, the StronglyTypedId library will create all the necessary code for you. (Don't forget to make your struct **partial**)
 
 ## Infrastructure
+
+In this project you will find all the code relative to webapi like swagger configuration, Middleware.
+
+## Persistence
 
 In this project you will find all the code relative to the mapping between the entities and the database but also all the helpers for query or request the database.
 
@@ -242,7 +247,7 @@ After that open with a text editor the csproj and make it like this exemple
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFramework>net5.0</TargetFramework>
 		<RootNamespace>$(BaseNamespace).MyNewProject</RootNamespace>
 	</PropertyGroup>
 

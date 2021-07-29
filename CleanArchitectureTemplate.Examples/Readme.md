@@ -109,9 +109,9 @@ If you want only remove container but not the data:
    ```bash
    > docker-compose up webapi_database
    ```
-5. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-6. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-7. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Create your Feature Branch (`git checkout -b feature/NewFeature`)
+6. Commit your Changes (`git commit -m 'Add some NewFeature'`)
+7. Push to the Branch (`git push origin feature/NewFeature`)
 8. Open a Pull Request
 
 # Docker Compose content
