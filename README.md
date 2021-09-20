@@ -18,7 +18,7 @@
 
 # About The Project
 
-This is a template to create a new Project. This template contains the minimal project already configured with the "basics".
+This is a template based on clean arhitecture and it can be used to startup a new Project. This template contains the minimal project already configured with the "basics".
 The documentation to initialize this template is [here](docs/Initialize-Template.md).
 
 # Getting started
