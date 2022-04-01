@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>$(BaseNamespace).Domain</RootNamespace>
     </PropertyGroup>
 
@@ -10,9 +10,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="CSharpFunctionalExtensions" Version="2.18.0" />
-      <PackageReference Include="FluentValidation" Version="10.3.0" />
+      <PackageReference Include="CSharpFunctionalExtensions" Version="2.29.0" />
+      <PackageReference Include="FluentValidation" Version="10.4.0" />
       <PackageReference Include="StronglyTypedId" Version="0.2.1" />
-      <PackageReference Include="System.Text.Json" Version="5.0.2" />
+      <PackageReference Include="System.Text.Json" Version="6.0.2" />
     </ItemGroup>
 </Project>

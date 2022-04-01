@@ -53,12 +53,11 @@ namespace SP.CleanArchitectureTemplate.WebApi
                        .ConfigureWebHostDefaults(webBuilder =>
                        {
                            webBuilder.UseStartup<Startup>();
-                           webBuilder.UseSerilog((hostingContext,
-                                                  loggerConfiguration) =>
-                                                     loggerConfiguration.ReadFrom.Configuration(
-                                                         hostingContext.Configuration))
-                                     .CaptureStartupErrors(true);
-                       });
+                       })
+                       .UseSerilog((hostingContext,
+                                    loggerConfiguration) =>
+                                       loggerConfiguration.ReadFrom.Configuration(
+                                           hostingContext.Configuration));
         }
     }
 }

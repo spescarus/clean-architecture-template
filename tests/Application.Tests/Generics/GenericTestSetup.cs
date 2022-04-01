@@ -27,7 +27,7 @@ namespace SP.CleanArchitectureTemplate.Application.Tests.Generics
                          Debugger.Break();
                          var asyncEntities = entities.AsQueryable()
                                                      .BuildMock();
-                         var test = asyncEntities.Object
+                         var test = asyncEntities
                                              .Where(x => x.Id.Equals(id))
                                              .ToTask()
                                              .FirstOrDefaultAsync();
@@ -46,7 +46,7 @@ namespace SP.CleanArchitectureTemplate.Application.Tests.Generics
                                            {
                                                var asyncEntities = entities.AsQueryable()
                                                                            .BuildMock();
-                                               return asyncEntities.Object
+                                               return asyncEntities
                                                                    .Where(exp)
                                                                    .ToTask()
                                                                    .ToListAsync();
@@ -62,7 +62,7 @@ namespace SP.CleanArchitectureTemplate.Application.Tests.Generics
                                            {
                                                var asyncEntities = entities.AsQueryable()
                                                                            .BuildMock();
-                                               return asyncEntities.Object
+                                               return asyncEntities
                                                                    .Where(exp)
                                                                    .ToTask()
                                                                    .FirstOrDefaultAsync();

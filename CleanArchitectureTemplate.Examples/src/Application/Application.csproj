@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>$(BaseNamespace).Application</RootNamespace>
         <AssemblyName>Application</AssemblyName>
     </PropertyGroup>
@@ -11,12 +11,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoMapper" Version="10.1.1" />
-      <PackageReference Include="FluentValidation" Version="10.3.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-      <PackageReference Include="Scrutor" Version="3.3.0" />
-      <PackageReference Include="System.Text.Json" Version="5.0.2" />
+      <PackageReference Include="AutoMapper" Version="11.0.1" />
+      <PackageReference Include="FluentValidation" Version="10.4.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+      <PackageReference Include="Scrutor" Version="4.1.0" />
+      <PackageReference Include="System.Text.Json" Version="6.0.2" />
     </ItemGroup>
 
     <ItemGroup>
